@@ -16,9 +16,11 @@ print(f"Pipeline loaded. {len(SAMPLES)} samples found.")
 
 include: "rules/download.smk"
 include: "rules/qc.smk"
+include: "rules/assembly.smk"
 
 rule all:
     input:
         expand("data/raw/{sample}_1.fastq.gz", sample=SAMPLES),
         expand("data/raw/{sample}_2.fastq.gz", sample=SAMPLES),
 	"results/qc/multiqc_report.html",
+	expand("results/assembly/{sample}/contigs.fasta", sample=SAMPLES),
