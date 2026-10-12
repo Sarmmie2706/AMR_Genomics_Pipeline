@@ -18,6 +18,7 @@ include: "rules/download.smk"
 include: "rules/qc.smk"
 include: "rules/assembly.smk"
 include: "rules/assembly_qc.smk"
+include: "rules/annotation.smk"
 
 rule all:
     input:
@@ -26,3 +27,4 @@ rule all:
 	"results/qc/multiqc_report.html",
 	expand("results/assembly/{sample}/contigs.fasta", sample=SAMPLES),
 	expand("results/assembly_qc/{sample}/report.tsv", sample=SAMPLES),
+	expand("results/annotation/{sample}/{sample}.gff", sample=SAMPLES),
