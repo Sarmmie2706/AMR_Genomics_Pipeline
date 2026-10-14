@@ -19,6 +19,7 @@ include: "rules/qc.smk"
 include: "rules/assembly.smk"
 include: "rules/assembly_qc.smk"
 include: "rules/annotation.smk"
+include: "rules/amr_detection.smk"
 
 rule all:
     input:
@@ -28,3 +29,9 @@ rule all:
 	expand("results/assembly/{sample}/contigs.fasta", sample=SAMPLES),
 	expand("results/assembly_qc/{sample}/report.tsv", sample=SAMPLES),
 	expand("results/annotation/{sample}/{sample}.gff", sample=SAMPLES),
+	expand(
+            "results/amr/{sample}/{sample}_{db}.tsv",
+            sample=SAMPLES,
+            db=["card", "resfinder", "ncbi"],
+        ),
+        expand("results/amr/summary_{db}.tsv", db=["card", "resfinder", "ncbi"]),
