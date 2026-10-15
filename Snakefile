@@ -20,6 +20,7 @@ include: "rules/assembly.smk"
 include: "rules/assembly_qc.smk"
 include: "rules/annotation.smk"
 include: "rules/amr_detection.smk"
+include: "rules/plasmid_detection.smk"
 
 rule all:
     input:
@@ -35,3 +36,4 @@ rule all:
             db=["card", "resfinder", "ncbi"],
         ),
         expand("results/amr/summary_{db}.tsv", db=["card", "resfinder", "ncbi"]),
+	expand("results/plasmid/{sample}/contig_report.txt", sample=SAMPLES),
