@@ -14,13 +14,13 @@ with open(config["samples_file"]) as f:
 
 print(f"Pipeline loaded. {len(SAMPLES)} samples found.")
 
-include: "rules/download.smk"
-include: "rules/qc.smk"
-include: "rules/assembly.smk"
-include: "rules/assembly_qc.smk"
-include: "rules/annotation.smk"
-include: "rules/amr_detection.smk"
-include: "rules/plasmid_detection.smk"
+include: "rules/01_download.smk"
+include: "rules/02_qc.smk"
+include: "rules/03_assembly.smk"
+include: "rules/04_assembly_qc.smk"
+include: "rules/05_annotation.smk"
+include: "rules/06_amr_detection.smk"
+include: "rules/07_plasmid_detection.smk"
 
 rule all:
     input:
