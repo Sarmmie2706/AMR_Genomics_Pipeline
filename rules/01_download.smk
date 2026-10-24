@@ -20,3 +20,7 @@ rule download_reads:
         gzip -f data/raw/{wildcards.sample}_2.fastq
         rm -rf data/raw/{wildcards.sample}
         """
+
+# To verify all downloads completed:
+# ls -lh data/raw/*.fastq.gz | wc -l   # should return 38
+# zcat data/raw/<SAMPLE>_1.fastq.gz | head -8   # inspect first two reads

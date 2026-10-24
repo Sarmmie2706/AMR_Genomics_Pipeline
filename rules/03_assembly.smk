@@ -33,3 +33,8 @@ rule spades_assembly:
             {output.contigs} \
             > {output.filtered}
         """
+
+# To check contig counts after filtering:
+# for f in results/assembly/*/contigs_filtered.fasta; do
+#     echo "$(basename $(dirname $f)): $(grep -c '>' $f) contigs"
+# done

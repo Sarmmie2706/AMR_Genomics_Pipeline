@@ -20,3 +20,14 @@ rule quast_qc:
             --min-contig 500 \
             > {log} 2>&1
         """
+
+# To view assembly QC stats across all samples in the terminal:
+# echo -e "Sample\tContigs\tTotal_length\tN50\tLargest_contig" && \
+# for sample in $(cat config/accessions.txt); do
+#     report="results/assembly_qc/${sample}/report.tsv"
+#     contigs=$(grep "^# contigs " "$report" | head -1 | cut -f2)
+#     total=$(grep "^Total length " "$report" | head -1 | cut -f2)
+#     n50=$(grep "^N50" "$report" | cut -f2)
+#     largest=$(grep "^Largest contig" "$report" | cut -f2)
+#     echo -e "${sample}\t${contigs}\t${total}\t${n50}\t${largest}"
+# done

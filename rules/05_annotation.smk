@@ -25,3 +25,9 @@ rule prokka_annotate:
             {input.contigs} \
             > {log} 2>&1
         """
+
+# To view Prokka annotation summary across all samples:
+# for sample in $(cat config/accessions.txt); do
+#     txt="results/annotation/${sample}/${sample}.txt"
+#     echo "=== ${sample} ===" && cat ${txt} && echo ""
+# done

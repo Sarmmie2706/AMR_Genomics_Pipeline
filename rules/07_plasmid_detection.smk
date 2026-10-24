@@ -21,3 +21,13 @@ rule mob_recon:
             --force \
             > {log} 2>&1
         """
+
+# To check plasmid vs chromosome contig counts per sample:
+# for sample in $(cat config/accessions.txt); do
+#     plasmid=$(grep -c "plasmid" results/plasmid/${sample}/contig_report.txt 2>/dev/null || echo 0)
+#     chrom=$(grep -c "chromosome" results/plasmid/${sample}/contig_report.txt 2>/dev/null || echo 0)
+#     echo "${sample}: ${plasmid} plasmid contigs, ${chrom} chromosomal contigs"
+# done
+#
+# To inspect plasmid hits for one sample:
+# grep "plasmid" results/plasmid/<SAMPLE>/contig_report.txt | cut -f2,5,10,12,14,18

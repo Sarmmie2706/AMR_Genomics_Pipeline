@@ -36,3 +36,25 @@ rule abricate_summary:
         """
         abricate --summary {input} > {output} 2> {log}
         """
+
+# To view AMR hits for one sample against one database:
+# cat results/amr/<SAMPLE>/<SAMPLE>_card.tsv
+# cat results/amr/<SAMPLE>/<SAMPLE>_resfinder.tsv
+# cat results/amr/<SAMPLE>/<SAMPLE>_ncbi.tsv
+#
+# To count genes found per sample per database:
+# for sample in $(cat config/accessions.txt); do
+#     count=$(tail -n +2 results/amr/${sample}/${sample}_card.tsv | wc -l)
+#     echo "${sample}: ${count} CARD hits"
+# done
+#
+# To view the cross-sample presence/absence summary:
+# cat results/amr/summary_card.tsv
+# cat results/amr/summary_resfinder.tsv
+# cat results/amr/summary_ncbi.tsv
+#
+# To find which samples carry a specific gene (e.g. TEM-1):
+# grep "TEM-1" results/amr/*/\*_card.tsv
+#
+# To see only plasmid-borne hits after integration:
+# grep "plasmid" results/integrated/per_sample/<SAMPLE>_integrated.tsv
