@@ -2,9 +2,6 @@
 """
 combine_tables.py
 Concatenates all per-sample integrated TSV files into one master table.
-Drops placeholder rows (samples with no AMR hits).
-Where a gene appears in multiple databases, keeps the highest-identity hit
-and records which databases confirmed it.
 
 Usage:
     python scripts/combine_tables.py \

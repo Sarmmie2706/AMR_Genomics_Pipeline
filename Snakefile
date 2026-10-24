@@ -21,6 +21,7 @@ include: "rules/04_assembly_qc.smk"
 include: "rules/05_annotation.smk"
 include: "rules/06_amr_detection.smk"
 include: "rules/07_plasmid_detection.smk"
+include: "rules/08_integration.smk"
 
 rule all:
     input:
@@ -37,3 +38,8 @@ rule all:
         ),
         expand("results/amr/summary_{db}.tsv", db=["card", "resfinder", "ncbi"]),
 	expand("results/plasmid/{sample}/contig_report.txt", sample=SAMPLES),
+	expand(
+            "results/integrated/per_sample/{sample}_integrated.tsv",
+            sample=SAMPLES,
+        ),
+        "results/integrated/all_samples_integrated.tsv",
