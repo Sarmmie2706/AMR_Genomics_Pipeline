@@ -1,4 +1,3 @@
-# Snakefile
 # Genomic characterization of antimicrobial resistance determinants
 # in Nigerian Enterobacteriaceae WGS data (BioProject PRJNA838568)
 # Uwanibe et al. 2024, Microorganisms -- Osun State, Nigeria
@@ -22,6 +21,7 @@ include: "rules/05_annotation.smk"
 include: "rules/06_amr_detection.smk"
 include: "rules/07_plasmid_detection.smk"
 include: "rules/08_integration.smk"
+include: "rules/09_cooccurrence.smk"
 
 rule all:
     input:
@@ -43,3 +43,9 @@ rule all:
             sample=SAMPLES,
         ),
         "results/integrated/all_samples_integrated.tsv",
+	"results/analysis/gene_frequency.png",
+	"results/analysis/plasmid_vs_chromosome.png",
+	"results/analysis/gene_detection_heatmap.png",
+	"results/analysis/summary_stats.txt",
+	"results/analysis/species_plasmid_burden.png",
+	"results/analysis/cooccurrence_heatmap.png",
