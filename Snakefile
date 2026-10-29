@@ -22,6 +22,7 @@ include: "rules/06_amr_detection.smk"
 include: "rules/07_plasmid_detection.smk"
 include: "rules/08_integration.smk"
 include: "rules/09_cooccurrence.smk"
+include: "rules/10_summary_rules.smk"
 
 rule all:
     input:
@@ -49,3 +50,6 @@ rule all:
 	"results/analysis/summary_stats.txt",
 	"results/analysis/species_plasmid_burden.png",
 	"results/analysis/cooccurrence_heatmap.png",
+        "results/summary_tables/cds_summary.tsv",
+        "results/summary_tables/combined_contig_report.tsv",
+        "results/summary_tables/integration_summary.txt",
